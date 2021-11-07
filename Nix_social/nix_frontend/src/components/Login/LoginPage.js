@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { Color } from "../Data/Color";
 import Logo from "./../../Images/Brand/Nix-Logo.png";
 import { Link } from "react-router-dom";
-
+import Input from "./Input";
 const LoginContainer = styled.div`
   width: 100vw;
   height: 100vh;
@@ -58,15 +58,6 @@ const InputCss = css`
   border-radius: 6px;
 `;
 
-const Input = styled.input`
-  ${InputCss}
-  background: ${Color.login.background};
-  border: 1px solid ${Color.login.form};
-  &:focus {
-    border: 1px solid ${Color.login.text};
-  }
-`;
-
 const Button = styled.button`
   ${InputCss}
   background: ${Color.login.button};
@@ -111,10 +102,8 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
     console.log(e);
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    console.log(username, password);
 
     if (username == "Tib" && password == "123") {
-      console.log("VALID");
       setAuthenticated(true);
     }
   };
@@ -134,14 +123,8 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
         </Icon>
         <Line />
         <Form>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <Input type="text" name="username" id="username" />
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <Input type="password" name="password" id="password" />
-          </div>
+          <Input type="text" label="username" />
+          <Input type="password" label="password" />
           <Button onClick={handleLogin} ref={button}>
             Submit
           </Button>
