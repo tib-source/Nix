@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require("webpack");
-
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -15,6 +14,17 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        use: {
+          loader: "css-loader"
+        }
+      },
+      {
+        test: /\.(png|jpg)$/,
+        type: "asset",
+        parser: { dataUrlCondition: { maxSize: 15000 } },
       },
     ],
   },

@@ -1,7 +1,12 @@
 import React from "react";
+import Logo from "./../../Images/Brand/Nix-white-bg.png";
 
-const Homepage = () => {
-  return <div>Hello</div>;
+const HomePage = () => {
+  return (
+    <div>
+      <img src={Logo} alt="Nix Logo" />
+    </div>
+  );
 };
 
-export default Homepage;
+export default HomePage;

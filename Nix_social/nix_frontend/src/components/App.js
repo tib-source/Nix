@@ -1,13 +1,16 @@
-import React from "react";
-import Homepage from "./Homepage";
+import React, { useEffect, useState } from "react";
+import HomePage from "./HomePage/HomePage";
 import { render } from "react-dom";
+import LoginPage from './Login/LoginPage'
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => {
+  const [authenticated, setAuthenticated] = useState(false);
+  useEffect(() => { }, [])
   return (
-    <div>
-      <h2>Hello</h2>
-      <Homepage />
-    </div>
+    <Router>
+      {authenticated ? <HomePage setAuthenticated={setAuthenticated} /> : <LoginPage authenticated={authenticated} setAuthenticated={setAuthenticated} />}
+    </Router>
   );
 };
 
