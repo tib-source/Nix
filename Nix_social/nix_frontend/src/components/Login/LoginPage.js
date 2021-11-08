@@ -9,6 +9,7 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    //This works - Please dont change anything related to this
     if (username == "Tib" && password == "123") {
       setAuthenticated(true);
     }
@@ -41,7 +42,7 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
         <Style.Forgot to="/">Forgot Password ?</Style.Forgot>
 
         <Style.NewUser>
-          New here? <Style.Forgot to="/">Sign Up</Style.Forgot>
+          New here? <Style.Forgot to="/signup">Sign Up</Style.Forgot>
         </Style.NewUser>
       </Style.LoginWrapper>
     </Style.LoginContainer>
