@@ -2,19 +2,16 @@ import React, { useEffect, useState } from "react";
 import HomePage from "./components/HomePage/HomePage";
 import { render } from "react-dom";
 import LoginPage from "./components/Login/LoginPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignUpPage from "./components/signup/SignUpPage";
-import Store from "./store";
-import { Provider, connect } from "react-redux";
-import { push } from "redux-first-history";
-import { Router } from "react-router-dom";
-import { store, history } from "./store";
+import Root from "./Root";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   return (
-    <BrowserRouter>
-      <Routes>
+    <Root>
+      <Switch>
+        {console.log("ITS WORKING")}
         <Route
           path="/login"
           element={
@@ -34,9 +31,12 @@ const App = () => {
           }
         />
         <Route exact path="/" element={<HomePage />} />
-      </Routes>
-    </BrowserRouter>
+      </Switch>
+    </Root>
   );
 };
+
+const appDiv = document.querySelector("#main");
+render(<App />, appDiv);
 
 export default App;
