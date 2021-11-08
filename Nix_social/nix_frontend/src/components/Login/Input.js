@@ -23,7 +23,6 @@ const titleCase = (string) => {
   const items = string.split(" ");
   const returnArr = [];
   for (let item of items) {
-    console.log(item);
     item = item.split("");
     const first = item.shift().toUpperCase();
     const lower = item.join("").toLowerCase();
@@ -32,11 +31,20 @@ const titleCase = (string) => {
   return returnArr.join(" ");
 };
 
-const Input = ({ type, label }) => {
+const Input = ({ type, label, state, setState }) => {
+  const handleChange = (event) => {
+    setState(event.target.value);
+  };
   return (
     <div>
       <Label htmlFor={label}>{titleCase(label)}</Label>
-      <StyledInput type={type} name={label} id={label} />
+      <StyledInput
+        onChange={handleChange}
+        type={type}
+        name={label}
+        id={label}
+        value={state}
+      />
     </div>
   );
 };

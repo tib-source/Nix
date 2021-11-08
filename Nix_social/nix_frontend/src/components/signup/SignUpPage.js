@@ -1,21 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import Logo from "./../../Images/Brand/Nix-Logo.png";
-import Input from "./Input";
-import * as Style from "./LoginSyle";
-const LoginPage = ({ history, authenticated, setAuthenticated }) => {
-  const button = useRef(null);
+import React, { useState } from "react";
+import * as Style from "./../Login/LoginSyle";
+import Input from "../Login/Input";
+
+const SignUpPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (username == "Tib" && password == "123") {
-      setAuthenticated(true);
-    }
-  };
-
+  const [email, setEmail] = useState("");
   return (
-    <Style.LoginContainer className="login">
+    <Style.LoginContainer className="signup">
       <Style.LoginWrapper>
         <Style.Icon>
           <img src={Logo} alt="Logo" />
@@ -25,12 +17,21 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
           <Input
             type="text"
             label="username"
+            error={""}
             state={username}
             setState={setUsername}
           />
           <Input
+            type="email"
+            label="email"
+            error={""}
+            state={email}
+            setState={setEmail}
+          />
+          <Input
             type="password"
-            label="password"
+            label="password1"
+            error={""}
             state={password}
             setState={setPassword}
           />
@@ -48,4 +49,4 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

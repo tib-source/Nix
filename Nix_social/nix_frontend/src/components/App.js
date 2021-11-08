@@ -1,16 +1,37 @@
 import React, { useEffect, useState } from "react";
 import HomePage from "./HomePage/HomePage";
 import { render } from "react-dom";
-import LoginPage from './Login/LoginPage'
-import { BrowserRouter as Router } from "react-router-dom";
+import LoginPage from "./Login/LoginPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignUpPage from "./signup/SignUpPage";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
-  useEffect(() => { }, [])
+  useEffect(() => {}, []);
   return (
-    <Router>
-      {authenticated ? <HomePage setAuthenticated={setAuthenticated} /> : <LoginPage authenticated={authenticated} setAuthenticated={setAuthenticated} />}
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <LoginPage
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+            />
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <SignUpPage
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+            />
+          }
+        />
+        <Route exact path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
