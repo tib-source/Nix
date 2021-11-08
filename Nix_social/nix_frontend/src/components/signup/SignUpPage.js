@@ -5,8 +5,8 @@ import Logo from "./../../Images/Brand/Nix-Logo.png";
 
 const SignUpPage = () => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const button = useRef(null);
 
   const handleSignup = (e) => {

@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import HomePage from "./HomePage/HomePage";
+import HomePage from "./components/HomePage/HomePage";
 import { render } from "react-dom";
-import LoginPage from "./Login/LoginPage";
+import LoginPage from "./components/Login/LoginPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUpPage from "./signup/SignUpPage";
+import SignUpPage from "./components/signup/SignUpPage";
+import Store from "./store";
+import { Provider, connect } from "react-redux";
+import { push } from "redux-first-history";
+import { Router } from "react-router-dom";
+import { store, history } from "./store";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
-  useEffect(() => {}, []);
   return (
     <BrowserRouter>
       <Routes>
@@ -34,8 +38,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
-const appDiv = document.querySelector("#main");
-render(<App />, appDiv);
 
 export default App;
