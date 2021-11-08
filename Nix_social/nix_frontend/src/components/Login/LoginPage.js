@@ -96,7 +96,10 @@ const NewUser = styled.div`
 `;
 const LoginPage = ({ history, authenticated, setAuthenticated }) => {
   const button = useRef(null);
-
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(e);

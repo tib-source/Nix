@@ -16,6 +16,8 @@ class Profile(models.Model):
   story = models.ImageField(upload_to='stories') 
   online = models.CharField(max_length=10, choices=onlineChoice, default='online')
 
+
+
 """ 
 user model design : 
 
