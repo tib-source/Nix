@@ -131,4 +131,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Private 
+Authentication_endpoints.md
 >>>>>>> 068617ee0b57536504ae5111e47cda07111ab269
