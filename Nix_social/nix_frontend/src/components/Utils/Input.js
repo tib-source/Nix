@@ -8,7 +8,8 @@ const StyledInput = styled.input`
   outline: none;
   border-radius: 6px;
   background: ${Color.login.background};
-  border: 1px solid ${Color.login.form};
+  border: ${({ error }) =>
+    error ? `2px solid ${Color.login.error}` : `1px solid ${Color.login.form}`};
   &:focus {
     border: 1px solid ${Color.login.text};
   }
@@ -23,7 +24,6 @@ const titleCase = (string) => {
   const items = string.split(" ");
   const returnArr = [];
   for (let item of items) {
-    console.log(item);
     item = item.split("");
     const first = item.shift().toUpperCase();
     const lower = item.join("").toLowerCase();
@@ -31,12 +31,26 @@ const titleCase = (string) => {
   }
   return returnArr.join(" ");
 };
-
-const Input = ({ type, label }) => {
+const Error = styled.div`
+  font-size: 1rem;
+  color: ${Color.login.error};
+`;
+const Input = ({ type, label, state, setState, error }) => {
+  const handleChange = (event) => {
+    setState(event.target.value);
+  };
   return (
     <div>
       <Label htmlFor={label}>{titleCase(label)}</Label>
-      <StyledInput type={type} name={label} id={label} />
+      <StyledInput
+        onChange={handleChange}
+        type={type}
+        name={label}
+        id={label}
+        value={state}
+        error={error}
+      />
+      <Error>{error}</Error>
     </div>
   );
 };
