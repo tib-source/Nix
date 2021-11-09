@@ -38,9 +38,7 @@ export const getCurrentUser = (redirectTo) => (dispatch) => {
 
 export const setCurrentUser = (user, redirectTo) => (dispatch) => {
   localStorage.setItem("user", JSON.stringify(user));
-  dispatch(loginSlice.actions.set_token(user));
-
-  console.log("set user" + redirectTo);
+  dispatch(loginSlice.actions.set_current_user(user));
   if (redirectTo !== "") {
     dispatch(push(redirectTo));
   }
@@ -56,7 +54,8 @@ export const unsetCurrentUser = () => (dispatch) => {
   setAxiosAuthToken("");
   localStorage.removeItem("token");
   localStorage.removeItem("user");
-  dispatch(loginSlice.actions.unset_current_user);
+  dispatch(loginSlice.actions.unset_current_user());
+  console.log("I HAVE BEEN CALLED SIRE");
 };
 
 export const logout = () => (dispatch) => {

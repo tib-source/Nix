@@ -8,29 +8,22 @@ import Root from "./Root";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../static/css/toastify.css";
-
+import Dashboard from "./components/Dashboard/Dashboard";
+import requireAuth from "./components/Utils/RequireAuth";
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   return (
     <Root>
       <Switch>
         <Route path="/login">
-          <LoginPage
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
+          <LoginPage />
         </Route>
         <Route path="/signup">
-          <SignUpPage
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
+          <SignUpPage />
         </Route>
-        <Route path="/dashboard">
-          <HomePage />
-        </Route>
+        <Route path="/dashboard" component={requireAuth(Dashboard)} />
         <Route exact path="/">
-          ups
+          <HomePage />
         </Route>
       </Switch>
       <ToastContainer hideProgressBar={true} newestOnTop={true} />

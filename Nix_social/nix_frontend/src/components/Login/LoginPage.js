@@ -20,7 +20,7 @@ const LoginPage = (props) => {
     };
     props.login(userdata, "/dashboard");
   };
-
+  console.log(props);
   return (
     <Style.LoginContainer className="login">
       <Style.LoginWrapper>
@@ -57,7 +57,7 @@ const LoginPage = (props) => {
 
 LoginPage.propTypes = {
   login: PropTypes.func.isRequired,
-  auth: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {

@@ -18,7 +18,9 @@ const loginSlice = createSlice({
       state.user = action.payload;
     },
     unset_current_user: (state) => {
-      state = initialState;
+      state.isAuthenticated = false;
+      state.user = {};
+      state.token = "";
     },
   },
 });
