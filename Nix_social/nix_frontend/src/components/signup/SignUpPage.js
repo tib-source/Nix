@@ -2,8 +2,11 @@ import React, { useState, useRef } from "react";
 import * as Style from "./../Login/LoginSyle";
 import Input from "../Login/Input";
 import Logo from "./../../Images/Brand/Nix-Logo.png";
+import { signupNewUser } from "./SignupActions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
-const SignUpPage = () => {
+const SignUpPage = (props) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,11 +14,14 @@ const SignUpPage = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    //This works - Please dont change anything related to this
-    if (username == "Tib" && password == "123") {
-      setAuthenticated(true);
-    }
+    const userdata = {
+      username,
+      password,
+    };
+    props.signupNewUser(userdata);
   };
+
+  console.log(props, "moew");
   return (
     <Style.LoginContainer className="signup">
       <Style.LoginWrapper>
@@ -27,21 +33,21 @@ const SignUpPage = () => {
           <Input
             type="text"
             label="username"
-            error={""}
             state={username}
             setState={setUsername}
+            error={"" || props.createUser.usernameError[0]}
           />
           <Input
             type="email"
             label="email"
-            error={""}
+            error={"" || props.createUser.passwordError[0]}
             state={email}
             setState={setEmail}
           />
           <Input
             type="password"
             label="password"
-            error={""}
+            error={"" || props.createUser.passwordError[0]}
             state={password}
             setState={setPassword}
           />
@@ -59,4 +65,11 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+const mapStateToProps = (state) => {
+  return {
+    createUser: state.createUser,
+  };
+};
+export default connect(mapStateToProps, { signupNewUser })(
+  withRouter(SignUpPage)
+);

@@ -8,7 +8,8 @@ const StyledInput = styled.input`
   outline: none;
   border-radius: 6px;
   background: ${Color.login.background};
-  border: 1px solid ${Color.login.form};
+  border: ${({ error }) =>
+    error ? `2px solid ${Color.login.error}` : `1px solid ${Color.login.form}`};
   &:focus {
     border: 1px solid ${Color.login.text};
   }
@@ -30,8 +31,11 @@ const titleCase = (string) => {
   }
   return returnArr.join(" ");
 };
-
-const Input = ({ type, label, state, setState }) => {
+const Error = styled.div`
+  font-size: 1rem;
+  color: ${Color.login.error};
+`;
+const Input = ({ type, label, state, setState, error }) => {
   const handleChange = (event) => {
     setState(event.target.value);
   };
@@ -44,7 +48,9 @@ const Input = ({ type, label, state, setState }) => {
         name={label}
         id={label}
         value={state}
+        error={error}
       />
+      <Error>{error}</Error>
     </div>
   );
 };

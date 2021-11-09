@@ -5,33 +5,32 @@ import LoginPage from "./components/Login/LoginPage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignUpPage from "./components/signup/SignUpPage";
 import Root from "./Root";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./../static/css/toastify.css";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   return (
     <Root>
       <Switch>
-        {console.log("ITS WORKING")}
-        <Route
-          path="/login"
-          element={
-            <LoginPage
-              authenticated={authenticated}
-              setAuthenticated={setAuthenticated}
-            />
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <SignUpPage
-              authenticated={authenticated}
-              setAuthenticated={setAuthenticated}
-            />
-          }
-        />
-        <Route exact path="/" element={<HomePage />} />
+        <Route path="/login">
+          <LoginPage
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        <Route path="/signup">
+          <SignUpPage
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
       </Switch>
+      <ToastContainer hideProgressBar={true} newestOnTop={true} />
     </Root>
   );
 };
