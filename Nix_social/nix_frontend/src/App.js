@@ -26,8 +26,11 @@ const App = () => {
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        <Route exact path="/">
+        <Route path="/dashboard">
           <HomePage />
+        </Route>
+        <Route exact path="/">
+          ups
         </Route>
       </Switch>
       <ToastContainer hideProgressBar={true} newestOnTop={true} />

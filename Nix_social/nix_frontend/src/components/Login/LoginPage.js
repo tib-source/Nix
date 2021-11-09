@@ -1,18 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import Logo from "./../../Images/Brand/Nix-Logo.png";
-import Input from "./Input";
+import Input from "../Utils/Input";
 import * as Style from "./LoginSyle";
-const LoginPage = ({ history, authenticated, setAuthenticated }) => {
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
+import { connect } from "react-redux";
+import { login } from "./LoginActions";
+
+const LoginPage = (props) => {
   const button = useRef(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
-    //This works - Please dont change anything related to this
-    if (username == "Tib" && password == "123") {
-      setAuthenticated(true);
-    }
+    const userdata = {
+      username,
+      password,
+    };
+    props.login(userdata, "/dashboard");
   };
 
   return (
@@ -49,4 +55,13 @@ const LoginPage = ({ history, authenticated, setAuthenticated }) => {
   );
 };
 
-export default LoginPage;
+LoginPage.propTypes = {
+  login: PropTypes.func.isRequired,
+  auth: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  return { auth: state.auth };
+};
+
+export default connect(mapStateToProps, { login })(withRouter(LoginPage));

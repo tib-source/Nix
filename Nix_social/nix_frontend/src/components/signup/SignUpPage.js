@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import * as Style from "./../Login/LoginSyle";
-import Input from "../Login/Input";
+import Input from "../Utils/Input";
 import Logo from "./../../Images/Brand/Nix-Logo.png";
 import { signupNewUser } from "./SignupActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 
 const SignUpPage = (props) => {
   const [username, setUsername] = useState("");
@@ -14,6 +15,7 @@ const SignUpPage = (props) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+    console.log(username, password);
     const userdata = {
       username,
       password,
@@ -21,7 +23,6 @@ const SignUpPage = (props) => {
     props.signupNewUser(userdata);
   };
 
-  console.log(props, "moew");
   return (
     <Style.LoginContainer className="signup">
       <Style.LoginWrapper>
@@ -63,6 +64,11 @@ const SignUpPage = (props) => {
       </Style.LoginWrapper>
     </Style.LoginContainer>
   );
+};
+
+SignUpPage.propTypes = {
+  signupNewUser: PropTypes.func.isRequired,
+  createUser: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {

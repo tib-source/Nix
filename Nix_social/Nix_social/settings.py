@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
-    'nix_frontend',
     'rest_framework.authtoken',
-    'djoser'
+    'djoser',
+    'nix_frontend',
 ]
 
 REST_FRAMEWORK = {
