@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { createReduxHistoryContext } from "redux-first-history";
+import { createReduxHistoryContext, reachify } from "redux-first-history";
+import { createWouterHook } from "redux-first-history/wouter";
 import { createBrowserHistory } from "history";
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
@@ -17,3 +18,7 @@ export const store = createStore(
 );
 
 export const history = createReduxHistory(store);
+//if you use @reach/router
+export const reachHistory = reachify(history);
+//if you use wouter
+export const wouterUseLocation = createWouterHook(history);

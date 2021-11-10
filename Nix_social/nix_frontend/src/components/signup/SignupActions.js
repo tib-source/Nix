@@ -11,7 +11,7 @@ import { toastOnError } from "../Utils/Utils";
 export const signupNewUser = (userdata) => (dispatch) => {
   dispatch(signUpSlice.actions.CREATE_USER_SUBMITTED());
   axios
-    .post("/auth/users/", userdata)
+    .post("/api/auth/users/", userdata)
     .then((response) => {
       toast.success(
         `Account for ${userdata.username} created successfully. Please Login`
