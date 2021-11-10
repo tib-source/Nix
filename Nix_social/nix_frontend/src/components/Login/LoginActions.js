@@ -23,7 +23,6 @@ export const getCurrentUser = (redirectTo) => (dispatch) => {
   axios
     .get("/api/auth/users/me/")
     .then((response) => {
-      console.log(response.data);
       const user = {
         username: response.data.username,
         password: response.data.password,
@@ -55,7 +54,6 @@ export const unsetCurrentUser = () => (dispatch) => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
   dispatch(loginSlice.actions.unset_current_user());
-  console.log("I HAVE BEEN CALLED SIRE");
 };
 
 export const logout = () => (dispatch) => {
