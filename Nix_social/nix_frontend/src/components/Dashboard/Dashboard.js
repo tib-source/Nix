@@ -14,10 +14,6 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   background: tomato;
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
 `;
 
 const LOGO = styled.div`
