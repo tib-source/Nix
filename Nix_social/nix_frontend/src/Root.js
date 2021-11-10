@@ -17,7 +17,6 @@ const Root = ({ children, initialState = {} }) => {
     initialState,
     composeWithDevTools(applyMiddleware(...middleware))
   );
-  console.log(store);
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>{children}</ConnectedRouter>

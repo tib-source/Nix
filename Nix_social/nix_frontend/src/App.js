@@ -21,7 +21,8 @@ const App = () => {
         <Route path="/signup">
           <SignUpPage />
         </Route>
-        <Route path="/dashboard" component={requireAuth(Dashboard)} />
+        {/* <Route path="/dashboard" component={requireAuth(Dashboard)} /> */}
+        <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/">
           <HomePage />
         </Route>

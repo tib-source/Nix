@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import NIX_LOGO from "./../../Images/Brand/Nix-Logo.png";
 import { withRouter } from "react-router";
+import Taskbar from "./Taskbar/Taskbar";
 
 const Header = styled.header`
   display: flex;
@@ -45,9 +46,9 @@ const Dashboard = (props) => {
     <div>
       <Header>
         <LOGO className="logo">
-          <img src={NIX_LOGO} alt="Company Logo" />
+          <h1>NIX</h1>
         </LOGO>
-        <TaskBar />
+        <Taskbar />
         <Links className="links">
           <Button onClick={onLogout}>Log Out</Button>
         </Links>
@@ -62,7 +63,6 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state, "asfdas");
   return {
     auth: state.auth,
   };

@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from rest_framework import viewsets
 
-from Nix_social.api.models import Profile
-from Nix_social.api.serializers import profileSerializer
+from .models import Profile
+from .serializers import profileSerializer
 
 # Create your views here.
 

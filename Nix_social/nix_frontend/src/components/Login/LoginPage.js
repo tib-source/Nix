@@ -20,7 +20,6 @@ const LoginPage = (props) => {
     };
     props.login(userdata, "/dashboard");
   };
-  console.log(props);
   return (
     <Style.LoginContainer className="login">
       <Style.LoginWrapper>
