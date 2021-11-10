@@ -13,7 +13,6 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   background: tomato;
-
   img {
     width: 100%;
     object-fit: contain;
@@ -48,6 +47,7 @@ const Dashboard = (props) => {
         <LOGO className="logo">
           <img src={NIX_LOGO} alt="Company Logo" />
         </LOGO>
+        <TaskBar />
         <Links className="links">
           <Button onClick={onLogout}>Log Out</Button>
         </Links>

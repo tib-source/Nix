@@ -6,7 +6,7 @@ import loginSlice from "./LoginReducer";
 
 export const login = (userdata, redirectTo) => (dispatch) => {
   axios
-    .post("/auth/token/login/", userdata)
+    .post("/api/auth/token/login/", userdata)
     .then((response) => {
       const { auth_token } = response.data;
       setAxiosAuthToken(auth_token);
@@ -21,7 +21,7 @@ export const login = (userdata, redirectTo) => (dispatch) => {
 
 export const getCurrentUser = (redirectTo) => (dispatch) => {
   axios
-    .get("/auth/users/me/")
+    .get("/api/auth/users/me/")
     .then((response) => {
       console.log(response.data);
       const user = {
@@ -60,7 +60,7 @@ export const unsetCurrentUser = () => (dispatch) => {
 
 export const logout = () => (dispatch) => {
   axios
-    .post("/auth/token/logout/")
+    .post("/api/auth/token/logout/")
     .then((response) => {
       dispatch(unsetCurrentUser());
       dispatch(push("/"));
