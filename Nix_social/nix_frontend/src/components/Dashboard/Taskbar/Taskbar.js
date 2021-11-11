@@ -3,6 +3,8 @@ import styled from "styled-components";
 import LOGO from "./../../../Images/Brand/Nix-Logo.png";
 import UserInfo from "./UserInfo";
 import PROFILE_PIC from "./../../../Images/default_profile_pic.jpg";
+import { Color } from "./../../Data/Color";
+import Profile from "../../Utils/Profile";
 
 const TaskbarContainer = styled.div`
   width: 300px;
@@ -13,12 +15,12 @@ const TaskbarContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: hsl(226deg 14% 18%);
+  background-color: ${Color.main.taskbar};
   flex-direction: column;
   color: white;
 `;
 
-const Profile = styled.div`
+const ProfileInfo = styled.div`
   width: 100%;
   padding: 0 2rem;
   display: flex;
@@ -39,15 +41,7 @@ const Logo = styled.div`
   text-align: center;
   letter-spacing: 10px;
 `;
-const Img = styled.img`
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  padding: 10px;
-  border: ${({ story }) => (story === true ? "2px solid hotpink" : "none")};
-  cursor: pointer;
-`;
+
 const User = styled.div`
   display: flex;
   gap: 1.25rem;
@@ -87,14 +81,9 @@ const Taskbar = (props) => {
         <h1>NIX</h1>
       </Logo>
       {/* User infromation */}
-      <Profile className="profile">
-        {/* profile picture */}
+      <ProfileInfo className="profile">
         <User className="User">
-          <Img
-            story={user.story}
-            src={user.profilePic}
-            alt="user profile picture"
-          />
+          <Profile src={user.profilePic} story={user.story} />
           <div>
             <Fullname>{user.fullname}</Fullname>
             <Username>@{user.username}</Username>
@@ -105,11 +94,7 @@ const Taskbar = (props) => {
           <UserInfo label="Followers" ammount={user.data.posts} />
           <UserInfo label="Following" ammount={user.data.posts} />
         </Info>
-        {/* name */}
-        {/* username */}
-
-        {/* followers and post information */}
-      </Profile>
+      </ProfileInfo>
       {/* navigation links */}
     </TaskbarContainer>
   );
