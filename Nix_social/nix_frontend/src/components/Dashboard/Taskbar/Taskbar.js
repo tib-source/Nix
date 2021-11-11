@@ -5,7 +5,13 @@ import UserInfo from "./UserInfo";
 import PROFILE_PIC from "./../../../Images/default_profile_pic.jpg";
 import { Color } from "./../../Data/Color";
 import Profile from "../../Utils/Profile";
-
+import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
+import { FaRegPaperPlane } from "react-icons/fa";
+import { BsBell } from "react-icons/bs";
+import { MdLogout, MdWebStories, MdTurnedInNot } from "react-icons/md";
+import { IoStatsChartOutline } from "react-icons/io5";
 const TaskbarContainer = styled.div`
   width: 300px;
   height: 100vh;
@@ -61,6 +67,40 @@ const Username = styled.div`
   opacity: 0.7;
 `;
 
+const NavItem = styled(Link)`
+  text-decoration: none;
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  /* background: ivory; */
+  transition: 300ms ease-in-out;
+  &:hover {
+    font-weight: 500;
+    background-color: #f0f8ff34;
+    border-left: 3px solid ivory;
+  }
+`;
+
+const NavigationLinks = styled.div`
+  display: grid;
+  width: 100%;
+  padding: 1rem;
+
+  hr {
+    width: 80%;
+    height: 2px;
+    opacity: 0.15;
+    border-radius: 10px;
+    background: #f0f8ff34;
+    border: none;
+  }
+`;
+
+const NavText = styled.div``;
+
 const Taskbar = (props) => {
   const user = {
     fullname: "Lebron Smith",
@@ -96,6 +136,30 @@ const Taskbar = (props) => {
         </Info>
       </ProfileInfo>
       {/* navigation links */}
+      <NavigationLinks>
+        <NavItem to={"/"}>
+          <MdWebStories /> <NavText>Feed</NavText>
+        </NavItem>
+        <NavItem to={"/"}>
+          <FaRegPaperPlane /> <NavText>Direct</NavText>
+        </NavItem>
+        <NavItem to={"/"}>
+          <FiSearch /> <NavText>Explore</NavText>
+        </NavItem>
+        <NavItem to={"/"}>
+          <MdTurnedInNot /> <NavText>Favourites</NavText>
+        </NavItem>
+        <NavItem to={"/"}>
+          <IoStatsChartOutline /> <NavText>Stats</NavText>
+        </NavItem>
+        <NavItem to={"/"}>
+          <FiSettings /> <NavText>Settings</NavText>
+        </NavItem>
+        <hr />
+        <NavItem to={"/"}>
+          <MdLogout /> <NavText>Logout</NavText>
+        </NavItem>
+      </NavigationLinks>
     </TaskbarContainer>
   );
 };
