@@ -24,11 +24,11 @@ const TaskbarContainer = styled.div`
   background-color: ${Color.main.taskbar};
   flex-direction: column;
   color: white;
+  gap: 1.5rem;
 `;
 
 const ProfileInfo = styled.div`
   width: 100%;
-  padding: 0 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,11 +41,24 @@ const Info = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+
+  hr {
+    height: 80%;
+    width: 2px;
+    opacity: 0.15;
+    border-radius: 10px;
+    background: #f0f8ff34;
+    border: none;
+  }
 `;
 
 const Logo = styled.div`
   text-align: center;
   letter-spacing: 10px;
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const User = styled.div`
@@ -87,7 +100,7 @@ const NavItem = styled(Link)`
 const NavigationLinks = styled.div`
   display: grid;
   width: 100%;
-  padding: 1rem;
+  padding: 0 0 0 1rem;
 
   hr {
     width: 80%;
@@ -101,7 +114,7 @@ const NavigationLinks = styled.div`
 
 const NavText = styled.div``;
 
-const Taskbar = (props) => {
+const Taskbar = ({ onLogout }) => {
   const user = {
     fullname: "Lebron Smith",
     username: "leeboySmith",
@@ -131,7 +144,9 @@ const Taskbar = (props) => {
         </User>
         <Info className="User-details">
           <UserInfo label="Posts" ammount={user.data.posts} />
+          <hr />
           <UserInfo label="Followers" ammount={user.data.posts} />
+          <hr />
           <UserInfo label="Following" ammount={user.data.posts} />
         </Info>
       </ProfileInfo>
@@ -152,11 +167,11 @@ const Taskbar = (props) => {
         <NavItem to={"/"}>
           <IoStatsChartOutline /> <NavText>Stats</NavText>
         </NavItem>
-        <NavItem to={"/"}>
+        <NavItem to="/">
           <FiSettings /> <NavText>Settings</NavText>
         </NavItem>
         <hr />
-        <NavItem to={"/"}>
+        <NavItem to={"#"} onClick={onLogout}>
           <MdLogout /> <NavText>Logout</NavText>
         </NavItem>
       </NavigationLinks>
