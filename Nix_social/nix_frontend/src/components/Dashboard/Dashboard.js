@@ -14,10 +14,6 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   background: tomato;
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
 `;
 
 const LOGO = styled.div`
@@ -45,13 +41,7 @@ const Dashboard = (props) => {
   return (
     <div>
       <Header>
-        <LOGO className="logo">
-          <h1>NIX</h1>
-        </LOGO>
-        <Taskbar />
-        <Links className="links">
-          <Button onClick={onLogout}>Log Out</Button>
-        </Links>
+        <Taskbar onLogout={onLogout} />
       </Header>
     </div>
   );

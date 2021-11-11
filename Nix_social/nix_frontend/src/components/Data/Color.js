@@ -8,4 +8,8 @@ export const Color = {
     small: "lightblue",
     error: "tomato",
   },
+  main: {
+    taskbar: " hsl(226deg 14% 18%)",
+    story: "lightblue",
+  },
 };
