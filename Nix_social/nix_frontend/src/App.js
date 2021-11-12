@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import HomePage from "./container/HomePage/HomePage";
+import HomePage from "./containers/HomePage/HomePage";
 import { render } from "react-dom";
-import LoginPage from "./container/Login/LoginPage";
+import LoginPage from "./containers/Login/LoginPage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import SignUpPage from "./container/signup/SignUpPage";
+import SignUpPage from "./containers/signup/SignUpPage";
 import Root from "./Root";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../static/css/toastify.css";
-import Dashboard from "./contianer/Dashboard/Dashboard";
+import Dashboard from "./containers/Dashboard/Dashboard";
 import requireAuth from "./components/Utils/RequireAuth";
-const App = () => {
-  const [authenticated, setAuthenticated] = useState(false);
+import { getToken } from "./components/Utils/Utils";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+
+const App = (props) => {
+  console.log(props);
+
   return (
     <Root>
       <Switch>
@@ -21,8 +26,8 @@ const App = () => {
         <Route path="/signup">
           <SignUpPage />
         </Route>
-        {/* <Route path="/dashboard" component={requireAuth(Dashboard)} /> */}
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/dashboard" component={requireAuth(Dashboard)} />
+        {/* <Route path="/dashboard" component={Dashboard} /> */}
         <Route exact path="/">
           <HomePage />
         </Route>
@@ -34,5 +39,9 @@ const App = () => {
 
 const appDiv = document.querySelector("#main");
 render(<App />, appDiv);
+
+const mapStateToProps = (state) => {
+  return state;
+};
 
 export default App;

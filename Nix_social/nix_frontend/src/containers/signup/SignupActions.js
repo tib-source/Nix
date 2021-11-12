@@ -2,7 +2,7 @@ import signUpSlice from "./SignupReducer";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { toastOnError } from "../Utils/Utils";
+import { toastOnError } from "../../components/Utils/Utils";
 
 // CREATE_USER_SUBMITTED;
 // CREATE_USER_SUCCESS;

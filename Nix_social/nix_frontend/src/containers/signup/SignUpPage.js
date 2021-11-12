@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import * as Style from "./../Login/LoginSyle";
-import Input from "../Utils/Input";
+import Input from "../../components/Utils/Input";
 import Logo from "./../../Images/Brand/Nix-Logo.png";
 import { signupNewUser } from "./SignupActions";
 import { connect } from "react-redux";

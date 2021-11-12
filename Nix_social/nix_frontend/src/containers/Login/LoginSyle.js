@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Color } from "../Data/Color";
+import { Color } from "../../Data/Color";
 import { Link } from "react-router-dom";
 
 export const LoginContainer = styled.div`

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Logo from "./../../Images/Brand/Nix-Logo.png";
-import Input from "../Utils/Input";
+import Input from "../../components/Utils/Input";
 import * as Style from "./LoginSyle";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";

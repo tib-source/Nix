@@ -1,5 +1,5 @@
 import React from "react";
-import { logout } from "../../components/Login/LoginActions";
+import { logout } from "../Login/LoginActions";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import styled from "styled-components";

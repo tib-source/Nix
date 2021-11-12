@@ -1,7 +1,7 @@
 import axios from "axios";
 import { push } from "connected-react-router";
 import { toast } from "react-toastify";
-import { setAxiosAuthToken, toastOnError } from "../Utils/Utils";
+import { setAxiosAuthToken, toastOnError } from "../../components/Utils/Utils";
 import loginSlice from "./LoginReducer";
 
 export const login = (userdata, redirectTo) => (dispatch) => {
@@ -47,6 +47,7 @@ export const setToken = (token) => (dispatch) => {
   setAxiosAuthToken(token);
   localStorage.setItem("token", token);
   dispatch(loginSlice.actions.set_token(token));
+  console.log(loginSlice, "meow");
 };
 
 export const unsetCurrentUser = () => (dispatch) => {

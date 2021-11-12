@@ -21,3 +21,13 @@ export const toastOnError = (error) => {
     toast.error(JSON.stringify(error));
   }
 };
+
+export const getToken = () => {
+  try {
+    const token = localStorage.getItem("token");
+    setAxiosAuthToken(token);
+    return token;
+  } catch (e) {
+    return false;
+  }
+};

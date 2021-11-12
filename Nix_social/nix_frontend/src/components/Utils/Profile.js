@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Color } from "../Data/Color";
+import { Color } from "../../Data/Color";
 
 const Img = styled.img`
   width: 120px;

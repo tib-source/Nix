@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import LOGO from "./../../../Images/Brand/Nix-Logo.png";
+import LOGO from "./../../Images/Brand/Nix-Logo.png";
 import UserInfo from "./UserInfo";
-import PROFILE_PIC from "./../../../Images/default_profile_pic.jpg";
+import PROFILE_PIC from "./../../Images/default_profile_pic.jpg";
 import { Color } from "../../Data/Color";
 import Profile from "../Utils/Profile";
 import { Link } from "react-router-dom";
