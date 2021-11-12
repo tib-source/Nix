@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import HomePage from "./components/HomePage/HomePage";
+import HomePage from "./container/HomePage/HomePage";
 import { render } from "react-dom";
-import LoginPage from "./components/Login/LoginPage";
+import LoginPage from "./container/Login/LoginPage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import SignUpPage from "./components/signup/SignUpPage";
+import SignUpPage from "./container/signup/SignUpPage";
 import Root from "./Root";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../static/css/toastify.css";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./contianer/Dashboard/Dashboard";
 import requireAuth from "./components/Utils/RequireAuth";
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
