@@ -13,14 +13,11 @@ import { BsBell } from "react-icons/bs";
 import { MdLogout, MdWebStories, MdTurnedInNot } from "react-icons/md";
 import { IoStatsChartOutline } from "react-icons/io5";
 const TaskbarContainer = styled.div`
-  width: 300px;
+  flex: 0.175;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: ${Color.main.taskbar};
   flex-direction: column;
   color: white;

@@ -7,13 +7,14 @@ import PropTypes from "prop-types";
 import NIX_LOGO from "./../../Images/Brand/Nix-Logo.png";
 import { withRouter } from "react-router";
 import Taskbar from "../../components/Taskbar/Taskbar";
+import { Color } from "../../Data/Color";
+import MainContent from "../../components/MainContent/MainContent";
 
-const Header = styled.header`
+const Container = styled.header`
+  width: 100%;
+  height: 100vh;
+  background: ${Color.main.taskbar};
   display: flex;
-  padding: 2rem;
-  justify-content: space-between;
-  align-items: center;
-  background: tomato;
 `;
 
 const LOGO = styled.div`
@@ -39,11 +40,10 @@ const Dashboard = (props) => {
 
   console.log(props);
   return (
-    <div>
-      <Header>
-        <Taskbar onLogout={onLogout} />
-      </Header>
-    </div>
+    <Container>
+      <Taskbar onLogout={onLogout} />
+      <MainContent />
+    </Container>
   );
 };
 
