@@ -61,7 +61,6 @@ const Logo = styled.div`
 const User = styled.div`
   display: flex;
   gap: 1.25rem;
-  align-items: center;
   flex-direction: column;
   text-align: center;
 `;
@@ -133,7 +132,7 @@ const Taskbar = ({ onLogout }) => {
       {/* User infromation */}
       <ProfileInfo className="profile">
         <User className="User">
-          <Profile src={user.profilePic} story={user.story} />
+          <Profile onFeed={false} src={user.profilePic} story={user.story} />
           <div>
             <Fullname>{user.fullname}</Fullname>
             <Username>@{user.username}</Username>
