@@ -15,8 +15,6 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 const App = (props) => {
-  console.log(props);
-
   return (
     <Root>
       <Switch>

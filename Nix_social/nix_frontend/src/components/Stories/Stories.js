@@ -78,7 +78,6 @@ const Stories = () => {
       </Title>
       <Wrapper>
         {people.map((person, index) => {
-          console.log(person);
           return (
             <Profile
               onFeed={true}

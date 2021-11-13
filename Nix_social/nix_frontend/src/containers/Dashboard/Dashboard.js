@@ -38,7 +38,6 @@ const Dashboard = (props) => {
     props.logout();
   };
 
-  console.log(props);
   return (
     <Container>
       <Taskbar onLogout={onLogout} />

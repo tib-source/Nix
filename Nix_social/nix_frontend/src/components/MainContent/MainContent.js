@@ -16,10 +16,15 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  width: 90%;
+  width: 100%;
+  padding: 0 5rem;
   color: ${Color.login.form};
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `;
+
 const MainContent = () => {
   return (
     <Container>

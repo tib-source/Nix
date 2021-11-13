@@ -10,7 +10,7 @@ export const Color = {
   },
   main: {
     taskbar: " hsl(226deg 14% 18%)",
-    story: "lightblue",
+    story: "#0083b0",
     background: "#3d3f50",
     search: "#474b5c",
     text: "#fff",
