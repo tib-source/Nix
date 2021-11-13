@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'nix_frontend',
+    'django_heroku'
 ]
 
 REST_FRAMEWORK = {
