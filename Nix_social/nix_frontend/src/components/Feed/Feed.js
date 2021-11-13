@@ -58,12 +58,27 @@ const Info = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  margin-bottom: 1rem;
   & > * {
     ${flex}
   }
 `;
-const Post = styled.div``;
+const Post = styled.div`
+  break-inside: avoid-column;
+  cursor: pointer;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  transition: all 340ms;
+
+  &:hover {
+    opacity: 0.7;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+`;
 const Stats = styled.div`
   gap: 1rem;
 
