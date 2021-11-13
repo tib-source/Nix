@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Color } from "../../Data/Color";
 
 const Img = styled.img`
-  width: ${({ onFeed }) => (onFeed === true ? "100%" : "auto")};
+  width: ${({ onfeed }) => (onfeed === true ? "100%" : "auto")};
   aspect-ratio: 1;
   max-height: 120px;
   object-fit: cover;
@@ -16,7 +16,7 @@ const Img = styled.img`
 `;
 const Profile = ({ story, src, onFeed }) => {
   return (
-    <Img onFeed={onFeed} story={story} src={src} alt="user profile picture" />
+    <Img onfeed={onFeed} story={story} src={src} alt="user profile picture" />
   );
 };
 

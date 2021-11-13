@@ -47,7 +47,6 @@ export const setToken = (token) => (dispatch) => {
   setAxiosAuthToken(token);
   localStorage.setItem("token", token);
   dispatch(loginSlice.actions.set_token(token));
-  console.log(loginSlice, "meow");
 };
 
 export const unsetCurrentUser = () => (dispatch) => {
