@@ -9,6 +9,29 @@ onlineChoice = [
     ("a", "away")
 ]
 
+""" 
+user model design : 
+
+
+user = {
+  username : string ,
+  first-name: string,
+  last-name: string, 
+  email: string, 
+  phone-number: string, 
+  online: away || busy || active
+}
+
+
+profile = { 
+  user :USER OBJECT,  
+  profile-picture: picture,
+  followers: MANY TO MANY RELATIONSHIP,
+  following:  MANY TO MANY RELATIONSHIP,
+  story: [ picture/video ]
+}
+"""
+
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -25,25 +48,29 @@ class Profile(models.Model):
         max_length=10, choices=onlineChoice, default='online')
 
 
-""" 
-user model design : 
+# Post class
+"""
+post = { 
+  user: USER OBJECT, 
+  content-type: "video" | "picture" | "[array]",         # -> array can only contain "video" or "picture"
+  content: "imgUrl" | "videoUrl" | "[array]",
+  likes: ONE TO MANY RELATIONSHIP -> LIKE OBJECT,
+  comments: ONE TO MANY -> COMMENT OBJECT,
+}
 
-
-user = {
-  username : string ,
-  first-name: string,
-  last-name: string, 
-  email: string, 
-  phone-number: string, 
-  online: away || busy || active
+like = { 
+  user: USER OBJECT, 
+  content: "POST OBJECT" | "COMMENT OBJECT",
 }
 
 
-profile = { 
-  user :foreignKey,  
-  profile-picture: picture,
-  followers: MANY TO MANY RELATIONSHIP,
-  following:  MANY TO MANY RELATIONSHIP,
-  story: [ picture/video ]
-}
+comment = { 
+    user: USER OBJECT, 
+    text: "comment here", 
+    parent: "POST OBJECT" | "COMMENT OBJECT",  -> helps with the indentation of comments -> only going to allow one level of indentation
+    reply: boolean, 
+    replyingTo: USER OBJECT,
+    likes:  ONE TO MANY RELATIONSHIP -> LIKE OBJECT
+  }
+
 """
